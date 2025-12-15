@@ -1,0 +1,2 @@
+Webhook_url = "https://discordapp.com/api/webhooks/1406931756858474499/8d3Bjvq5fN_Z90-s_WB3mwpOKovFdbka0-FMzMMbjxxAHhHiNmc9aFgbQVQBJMLVWX8w"
+TWELVEDATA_API_KEY = '3ade041c576d48e5bed390b8902fb66f'

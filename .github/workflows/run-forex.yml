@@ -1,0 +1,26 @@
+name: Daily Forex Bot
+
+on:
+  schedule:
+    - cron: '5 21 * * *'  # Runs every day at 22:05 UTC (~10:05PM UK winter)
+  workflow_dispatch:       # Manual trigger (optional)
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install investpy pandas numpy scikit-learn xgboost requests
+
+      - name: Run forex bot
+        run: python main.py
