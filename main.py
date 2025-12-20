@@ -11,8 +11,8 @@ import requests
 import csv
 import shutil
 
-Webhook_url = os.environ.get["DISCORD_WEBHOOK_URL"]
-TWELVEDATA_API_KEY = os.environ.get["TWELVEDATA_API_KEY"]
+Webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
+TWELVEDATA_API_KEY = os.environ.get("TWELVEDATA_API_KEY")
 
 pairs = ['EUR/USD', 'GBP/USD', 'USD/CHF', 'AUD/USD', 'USD/CAD', 'NZD/USD', 'EUR/GBP', 'AUD/CAD', 'EUR/AUD', 'GBP/CAD', 'GBP/CHF', 'AUD/CHF', 'EUR/CHF', 'EUR/CAD', 'NZD/CHF', 'USD/SGD']
 
