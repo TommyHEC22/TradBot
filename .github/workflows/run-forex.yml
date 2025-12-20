@@ -2,13 +2,12 @@ name: Daily Forex Bot
 
 on:
   schedule:
-    - cron: '5 21 * * *'  # Runs every day at 22:05 UTC (~10:05PM UK winter)
-  workflow_dispatch:       # Manual trigger (optional)
+    - cron: '5 21 * * *'
+  workflow_dispatch: 
 
 jobs:
   run_script:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -20,7 +19,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install investpy pandas numpy scikit-learn xgboost requests
+          pip install pandas numpy scikit-learn xgboost requests
+          # Note: investpy is included but likely to fail
+          pip install investpy 
 
       - name: Run forex bot
+        env:
+          # THESE MUST MATCH YOUR GITHUB SETTINGS NAMES
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
         run: python main.py
